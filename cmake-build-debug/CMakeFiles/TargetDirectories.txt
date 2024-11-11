@@ -1,0 +1,3 @@
+C:/Users/amand/OneDrive/Documents/faculdade/semestre_2/laboratorio_de_programacao_2/restaurante/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir
+C:/Users/amand/OneDrive/Documents/faculdade/semestre_2/laboratorio_de_programacao_2/restaurante/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/amand/OneDrive/Documents/faculdade/semestre_2/laboratorio_de_programacao_2/restaurante/cmake-build-debug/CMakeFiles/rebuild_cache.dir

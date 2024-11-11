@@ -19,10 +19,10 @@ void menu(Mesa **mesas, int *linhas, int *colunas) {
 
         switch(opcao) {
             case 1:
-                abrirRestaurante(&mesas, linhas, colunas);
+                abrirRestaurante(mesas, linhas, colunas);
             break;
             case 2:
-                chegarClientes();
+                chegarClientes(mesas, linhas, colunas);
             break;
             case 3:
                 finalizarRefeicao();

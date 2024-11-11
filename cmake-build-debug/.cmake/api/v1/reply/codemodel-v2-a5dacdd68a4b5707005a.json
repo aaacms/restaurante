@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "restaurante",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "cadastro_bolsistas::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cadastro_bolsistas-Debug-176343b43fd476f83f6f.json",
+					"name" : "cadastro_bolsistas",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/amand/OneDrive/Documents/faculdade/semestre_2/laboratorio_de_programacao_2/restaurante/cmake-build-debug",
+		"source" : "C:/Users/amand/OneDrive/Documents/faculdade/semestre_2/laboratorio_de_programacao_2/restaurante"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

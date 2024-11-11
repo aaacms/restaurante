@@ -14,7 +14,7 @@ typedef struct {
 
 void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas);
 
-void chegarClientes();
+void chegarClientes(Mesa **mesas, int *linhas, int *colunas);
 
 void finalizarRefeicao();
 

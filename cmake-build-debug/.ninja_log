@@ -1,0 +1,7 @@
+# ninja log v6
+41	435	7530687066855799	CMakeFiles/cadastro_bolsistas.dir/pilha.c.obj	28f9dc98f9bf8779
+27	439	7530687066710742	CMakeFiles/cadastro_bolsistas.dir/fila.c.obj	d9486459c01e6d30
+12	567	7530687066565687	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+83	674	7530688977516822	CMakeFiles/cadastro_bolsistas.dir/acoes.c.obj	8a591ecc39ad0feb
+29	352	7530689232356509	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+354	988	7530689235601139	cadastro_bolsistas.exe	5958ced5c917ef5d
