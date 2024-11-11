@@ -12,7 +12,7 @@ typedef struct {
     int comanda;
 } Mesa;
 
-void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas);
+void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas);
 
 void chegarClientes();
 

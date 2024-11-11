@@ -2,7 +2,7 @@
 #include "acoes.h"
 #include <stdlib.h>
 
-void menu(Mesa ***mesas, int *linhas, int *colunas) {
+void menu(Mesa **mesas, int *linhas, int *colunas) {
     int opcao;
 
     do {
@@ -19,7 +19,7 @@ void menu(Mesa ***mesas, int *linhas, int *colunas) {
 
         switch(opcao) {
             case 1:
-                abrirRestaurante(&mesas, &linhas, &colunas);
+                abrirRestaurante(&mesas, linhas, colunas);
             break;
             case 2:
                 chegarClientes();
@@ -46,9 +46,9 @@ void menu(Mesa ***mesas, int *linhas, int *colunas) {
 }
 
 int main() {
-    Mesa **Mesas = NULL;
+    Mesa *mesas = NULL;
     int linhas = 0, colunas = 0;
-    menu(&Mesas, &linhas, &colunas);
+    menu(&mesas, &linhas, &colunas);
     return 0;
 }
 

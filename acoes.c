@@ -5,27 +5,27 @@
 #include "pilha.h"
 
 
-void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas) {
-    // Solicitar número de linhas e colunas da matriz de mesas
+void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas) {
+
     printf("Informe o número de linhas de mesas: ");
     scanf("%d", linhas);
     printf("Informe o número de colunas de mesas: ");
     scanf("%d", colunas);
 
-    // Alocar memória para a matriz de mesas
-    *mesas = (Mesa **)malloc((*linhas) * sizeof(Mesa *));
+
+    mesas = (Mesa **)malloc((*linhas) * sizeof(Mesa **));
     for (int i = 0; i < *linhas; i++) {
-        (*mesas)[i] = (Mesa *)malloc((*colunas) * sizeof(Mesa));
+        mesas[i] = (Mesa *)malloc((*colunas) * sizeof(Mesa));
     }
 
-    // Inicializar as mesas
+
     int contador = 1;
     for (int i = 0; i < *linhas; i++) {
         for (int j = 0; j < *colunas; j++) {
-            mesas[i][j]->numero = contador;
-            mesas[i][j]->ocupada = 0;
-            mesas[i][j]->pessoas = 0;
-            mesas[i][j]->comanda = 0;
+            mesas[i][j].numero = contador;
+            mesas[i][j].ocupada = 0;
+            mesas[i][j].pessoas = 0;
+            mesas[i][j].comanda = 0;
             contador++;
         }
     }
@@ -35,25 +35,25 @@ void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas) {
 
 void chegarClientes() {
     // Implementar lógica para chegada de clientes e alocação de mesas ou fila de espera
-    printf("Função Chegar Clientes chamada.\n");
+
 }
 
 void finalizarRefeicao() {
     // Implementar lógica para finalizar refeição, liberar mesa e chamar clientes da fila
-    printf("Função Finalizar Refeição chamada.\n");
+
 }
 
 void desistirDeEsperar() {
     // Implementar lógica para remover grupo da fila de espera
-    printf("Função Desistir de Esperar chamada.\n");
+
 }
 
 void reporPratos() {
     // Implementar lógica para adicionar pratos à pilha de pratos
-    printf("Função Repor Pratos chamada.\n");
+
 }
 
 void imprimirEstado() {
     // Implementar lógica para imprimir estado atual das mesas, fila de espera e pilha de pratos
-    printf("Função Imprimir Estado chamada.\n");
+
 }
