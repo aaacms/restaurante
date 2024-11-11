@@ -35,7 +35,39 @@ void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas) {
 
 void chegarClientes() {
     // Implementar lógica para chegada de clientes e alocação de mesas ou fila de espera
-
+    void chegarClientes(Mesa ***mesas, int *linhas, int *colunas) {
+    // Implementar lógica para chegada de clientes e alocação de mesas ou fila de espera
+    printf("Função Chegar Clientes chamada.\n");
+    int novos_clientes = -1;
+    printf("Digite a quantidade de clientes que chegaram no restaurante: ");
+    do{
+        scanf(" %d", &novos_clientes);
+    }while(novos_clientes == -1);
+    
+    int contador = 0;
+    for (int i = 0; i < *linhas; i++){
+        for (int j = 0; j < *colunas; j++){
+            if (mesas[i][j]->ocupada == 1){
+                contador++;
+            }
+            else if(mesas[i][j]->ocupada == 0){
+                if(novos_clientes <= 4){
+                    mesas[i][j]->ocupada = 1;
+                    mesas[i][j]->clientes = novos_clientes;
+                }
+                else{
+                    mesas[i][j]->ocupada = 1;
+                    mesas[i][j]->clientes = 4;
+                    novos_clientes -= 4;
+                }
+            }
+        }
+    }
+    if(contador == (*linhas)*(*colunas) || novos_clientes != 0){
+        for (int k = 0; k < novos_clientes; k++){
+            pilha.push();
+        }
+    }
 }
 
 void finalizarRefeicao() {
