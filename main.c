@@ -2,7 +2,9 @@
 #include "acoes.h"
 #include <stdlib.h>
 
-void menu(Mesa **mesas, int *linhas, int *colunas) {
+#include "pilha.h"
+
+void menu(Mesa **mesas, int *linhas, int *colunas, Pilha *pilhaPratos) {
     int opcao;
 
     do {
@@ -19,27 +21,32 @@ void menu(Mesa **mesas, int *linhas, int *colunas) {
 
         switch(opcao) {
             case 1:
-                abrirRestaurante(mesas, linhas, colunas);
-            break;
+                abrirRestaurante(&mesas, &linhas, &colunas, &pilhaPratos);
+                break;
             case 2:
-                chegarClientes(mesas, linhas, colunas);
-            break;
+                chegarClientes(mesas, &linhas, &colunas);
+                break;
             case 3:
-                finalizarRefeicao();
-            break;
+                finalizarRefeicao(mesas, linhas, colunas);
+                break;
             case 4:
                 desistirDeEsperar();
-            break;
+                break;
             case 5:
-                reporPratos();
-            break;
+                reporPratos(&pilhaPratos);
+                break;
             case 6:
-                imprimirEstado();
-            break;
+                imprimirEstado(mesas, linhas, colunas, &pilhaPratos);
+                break;
             case 0:
                 printf("Saindo...\n");
-                free(mesas);
-            break;
+                if (mesas != NULL) {
+                    for (int i = 0; i < linhas; i++) {
+                        free(mesas[i]);
+                    }
+                    free(mesas);
+                }
+                break;
             default:
                 printf("Opção inválida! Tente novamente.\n");
         }
@@ -49,7 +56,8 @@ void menu(Mesa **mesas, int *linhas, int *colunas) {
 int main() {
     Mesa *mesas = NULL;
     int linhas = 0, colunas = 0;
-    menu(&mesas, &linhas, &colunas);
+    Pilha* pilhaPratos = criaPilha();
+    menu(&mesas, &linhas, &colunas, &pilhaPratos);
     return 0;
 }
 

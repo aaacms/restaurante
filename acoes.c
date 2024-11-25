@@ -4,18 +4,12 @@
 #include "fila.h"
 #include "pilha.h"
 
-// Pilha de pratos
-typedef struct Prato {
-    int quantidade;
-} Prato;
-
-void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas) {
+void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas, Pilha * pilhaPratos) {
 
     printf("Informe o número de linhas de mesas: ");
     scanf("%d", linhas);
     printf("Informe o número de colunas de mesas: ");
     scanf("%d", colunas);
-
 
     mesas = (Mesa **)malloc((*linhas) * sizeof(Mesa **));
     for (int i = 0; i < *linhas; i++) {
@@ -29,6 +23,9 @@ void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas) {
             mesas[i][j].ocupada = 0;
             mesas[i][j].pessoas = 0;
             mesas[i][j].comanda = 0;
+            for (int k = 0; i < k; k++) {
+                push(&pilhaPratos, 1);
+            }
             contador++;
         }
     }
@@ -75,7 +72,7 @@ void chegarClientes(Mesa **mesas, int *linhas, int *colunas) {
     if(contador == (*linhas)*(*colunas) || novos_clientes != 0){
         printf("Não há mesas suficientes para acomodar todos os clientes. Alguns estão na fila de espera.");
         for (int k = 0; k < novos_clientes; k++){
-            //pilha.push();
+            // Implementar lógica para colocar os clientes na fila de espera
         }
     }
 }
@@ -120,12 +117,23 @@ void desistirDeEsperar() {
 
 }
 
-void reporPratos() {
+void reporPratos(Pilha *pilha) {
     int novos_pratos;
     printf("Digite a quantidade de pratos a repor: ");
     scanf("%d", &novos_pratos);
-    pilha->quantidade += novos_pratos;
-    printf("Foram repostos %d pratos. Total de pratos na pilha: %d.\n", novos_pratos, pilha->quantidade);
+    for (int i = 0; i < novos_pratos; i++) {
+        push(pilha, 1.0);
+    }
+    printf("Foram repostos %d pratos.\n", novos_pratos);
+}
+
+void removerPratos(Pilha *pilha, int quantidade) {
+    for (int i = 0; i < quantidade; i++) {
+        if (pop(pilha) == -1) {
+            printf("Não há pratos suficientes para remover.\n");
+            break;
+        }
+    }
 }
 
 void imprimirEstado() {
