@@ -38,6 +38,7 @@ void menu(Mesa **mesas, int *linhas, int *colunas) {
             break;
             case 0:
                 printf("Saindo...\n");
+                free(mesas);
             break;
             default:
                 printf("Opção inválida! Tente novamente.\n");
