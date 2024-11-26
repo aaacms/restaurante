@@ -2,6 +2,8 @@
 // Created by amand on 30/10/2024.
 //
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
 #include "fila.h"
 
 
