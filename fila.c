@@ -1,6 +1,3 @@
-//
-// Created by amand on 30/10/2024.
-//
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -15,8 +12,7 @@ Fila* filaCria(void){
 }
 
 bool filaVazia(Fila* filaClientes){
-    if(filaClientes->n == 0) return true;
-    else return false;
+    return (filaClientes->n == 0);
 }
 
 void filaInsere(Fila* filaClientes, int quantos){
@@ -25,18 +21,19 @@ void filaInsere(Fila* filaClientes, int quantos){
         printf("Capacidade da fila estourou, não foi possível inserir!\n");
         return;
     }
-    filaClientes->vet[fim]=quantos;
-    filaCLientes->n++;
+    GrupoClientes novoGrupo = {quantos, filaClientes->n + 1};
+    filaClientes->vet[fim] = novoGrupo;
+    filaClientes->n++;
 }
 
 int filaRetira(Fila* filaClientes){
-    if(!filaVazia(filaClientes)){
-        int temp = filaClientes->vet[filaClientes->ini];
-        filaClientes->ini=(filaClientes->ini + 1)%N;
+    if (!filaVazia(filaClientes)) {
+        GrupoClientes temp = filaClientes->vet[filaClientes->ini];
+        filaClientes->ini = (filaClientes->ini + 1) % 100;
         filaClientes->n--;
-        return v;
-    }else {
-        printf("Fila vazia, nada a remover!");
+        return temp.qtd;
+    } else {
+        printf("Fila vazia, nada a remover!\n");
         return 0;
     }
 }

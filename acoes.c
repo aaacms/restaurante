@@ -33,8 +33,8 @@ void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas, Pilha * pilhaPrat
     printf("Restaurante aberto com %d mesas (%d linhas x %d colunas).\n", (*linhas) * (*colunas), *linhas, *colunas);
 }
 
-void chegarClientes(Mesa **mesas, int *linhas, int *colunas) {
-    // Implementar lógica para chegada de clientes e alocação de mesas ou fila de espera
+void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes) {
+
     printf("Função Chegar Clientes chamada.\n");
     int novos_clientes = -1;
     printf("Digite a quantidade de clientes que chegaram no restaurante: ");
@@ -71,15 +71,12 @@ void chegarClientes(Mesa **mesas, int *linhas, int *colunas) {
 
     if(contador == (*linhas)*(*colunas) || novos_clientes != 0){
         printf("Não há mesas suficientes para acomodar todos os clientes. Alguns estão na fila de espera.");
-        for (int k = 0; k < novos_clientes; k++){
-            // Implementar lógica para colocar os clientes na fila de espera
-        }
+        filaInsere(filaClientes, novos_clientes);
     }
 }
 
 void finalizarRefeicao() {
-    printf("Função Finalizar Refeição chamada.
-");
+    printf("Função Finalizar Refeição chamada.");
     int numero_mesa;
     printf("Digite o número da mesa que deseja liberar: ");
     scanf("%d", &numero_mesa);

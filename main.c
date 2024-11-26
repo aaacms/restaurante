@@ -2,9 +2,10 @@
 #include "acoes.h"
 #include <stdlib.h>
 
+#include "fila.h"
 #include "pilha.h"
 
-void menu(Mesa **mesas, int *linhas, int *colunas, Pilha *pilhaPratos) {
+void menu(Mesa **mesas, int *linhas, int *colunas, Pilha *pilhaPratos, Fila *filaClientes) {
     int opcao;
 
     do {
@@ -24,7 +25,7 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha *pilhaPratos) {
                 abrirRestaurante(&mesas, &linhas, &colunas, &pilhaPratos);
                 break;
             case 2:
-                chegarClientes(mesas, &linhas, &colunas);
+                chegarClientes(mesas, &linhas, &colunas, &filaClientes);
                 break;
             case 3:
                 finalizarRefeicao(mesas, linhas, colunas);
@@ -57,7 +58,8 @@ int main() {
     Mesa *mesas = NULL;
     int linhas = 0, colunas = 0;
     Pilha* pilhaPratos = criaPilha();
-    menu(&mesas, &linhas, &colunas, &pilhaPratos);
+    Fila* filaClientes = filaCria();
+    menu(&mesas, &linhas, &colunas, &pilhaPratos, &filaClientes);
     return 0;
 }
 
