@@ -5,7 +5,8 @@
 #include "fila.h"
 #include "pilha.h"
 
-void menu(Mesa **mesas, int *linhas, int *colunas, Pilha *pilhaPratos, Fila *filaClientes) {
+
+void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **filaClientes) {
     int opcao;
 
     do {
@@ -22,30 +23,36 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha *pilhaPratos, Fila *fil
 
         switch(opcao) {
             case 1:
-                abrirRestaurante(&mesas, &linhas, &colunas, &pilhaPratos);
+                abrirRestaurante(&mesas, linhas, colunas, pilhaPratos);
                 break;
             case 2:
-                chegarClientes(mesas, &linhas, &colunas, &filaClientes);
+                chegarClientes(mesas, linhas, colunas, filaClientes);
                 break;
             case 3:
-                finalizarRefeicao(mesas, linhas, colunas);
+                finalizarRefeicao(mesas, linhas, colunas, filaClientes, pilhaPratos);
                 break;
             case 4:
-                desistirDeEsperar();
+                desistirDeEsperar(filaClientes);
                 break;
             case 5:
-                reporPratos(&pilhaPratos);
+                reporPratos(pilhaPratos);
                 break;
             case 6:
-                imprimirEstado(mesas, linhas, colunas, &pilhaPratos);
+                imprimirEstado(mesas, linhas, colunas, pilhaPratos, filaClientes);
                 break;
             case 0:
                 printf("Saindo...\n");
                 if (mesas != NULL) {
-                    for (int i = 0; i < linhas; i++) {
+                     for (int i = 0; i < *linhas; i++) {
                         free(mesas[i]);
                     }
                     free(mesas);
+                }
+                if (*filaClientes != NULL) {
+                    filaLibera(*filaClientes);
+                }
+                if (*pilhaPratos != NULL) {
+                    pilhaLibera(*pilhaPratos);
                 }
                 break;
             default:
@@ -57,8 +64,8 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha *pilhaPratos, Fila *fil
 int main() {
     Mesa *mesas = NULL;
     int linhas = 0, colunas = 0;
-    Pilha* pilhaPratos = criaPilha();
-    Fila* filaClientes = filaCria();
+    Pilha *pilhaPratos = criaPilha();
+    Fila *filaClientes = filaCria();
     menu(&mesas, &linhas, &colunas, &pilhaPratos, &filaClientes);
     return 0;
 }

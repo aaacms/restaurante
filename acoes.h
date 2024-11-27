@@ -10,18 +10,18 @@ typedef struct {
     int comanda;
 } Mesa;
 
-void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas);
+void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas, Pilha **pilhaPratos);
 
 void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes);
 
-void finalizarRefeicao(Mesa **mesas, int linhas, int colunas, Fila *filaClientes, Pilha *pilhaPratos);
+void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes, Pilha *pilhaPratos);
 
-void desistirDeEsperar();
+void desistirDeEsperar(Fila *filaClientes);
 
 void reporPratos(Pilha *pilha);
 
 void removerPratos(Pilha *pilha, int quantidade);
 
-void imprimirEstado(Mesa **mesas, int linhas, int colunas, Pilha *pilha, Fila *filaClientes);
+void imprimirEstado(Mesa **mesas, int *linhas, int *colunas, Pilha *pilha, Fila *filaClientes);
 
 #endif //ACOES_H

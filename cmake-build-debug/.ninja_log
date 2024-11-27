@@ -5,3 +5,14 @@
 83	674	7530688977516822	CMakeFiles/cadastro_bolsistas.dir/acoes.c.obj	8a591ecc39ad0feb
 29	352	7530689232356509	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
 354	988	7530689235601139	cadastro_bolsistas.exe	5958ced5c917ef5d
+140	526	7544374046566909	CMakeFiles/cadastro_bolsistas.dir/pilha.c.obj	28f9dc98f9bf8779
+130	538	7544374046463561	CMakeFiles/cadastro_bolsistas.dir/fila.c.obj	d9486459c01e6d30
+30	210	7544374890598561	CMakeFiles/cadastro_bolsistas.dir/fila.c.obj	d9486459c01e6d30
+6	160	7544377614983933	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+9	159	7544378823210108	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+18	187	7544378823302144	CMakeFiles/cadastro_bolsistas.dir/acoes.c.obj	8a591ecc39ad0feb
+36	175	7544379035127120	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+43	181	7544379895889263	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+6	248	7544380725569420	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+9	170	7544381369459079	CMakeFiles/cadastro_bolsistas.dir/main.c.obj	ee59f42fb4bd0869
+18	185	7544381369560074	CMakeFiles/cadastro_bolsistas.dir/acoes.c.obj	8a591ecc39ad0feb
