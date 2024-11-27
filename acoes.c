@@ -11,20 +11,20 @@ void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas, Pilha * pilhaPrat
     printf("Informe o número de colunas de mesas: ");
     scanf("%d", colunas);
 
-    mesas = (Mesa **)malloc((*linhas) * sizeof(Mesa **));
+    *mesas = (Mesa **)malloc((*linhas) * sizeof(Mesa *));
     for (int i = 0; i < *linhas; i++) {
-        mesas[i] = (Mesa *)malloc((*colunas) * sizeof(Mesa));
+        (*mesas)[i] = (Mesa *)malloc((*colunas) * sizeof(Mesa));
     }
     
     int contador = 1;
     for (int i = 0; i < *linhas; i++) {
         for (int j = 0; j < *colunas; j++) {
-            mesas[i][j].numero = contador;
-            mesas[i][j].ocupada = 0;
-            mesas[i][j].pessoas = 0;
-            mesas[i][j].comanda = 0;
-            for (int k = 0; i < k; k++) {
-                push(&pilhaPratos, 1);
+            (*mesas)[i][j].numero = contador;
+            (*mesas)[i][j].ocupada = 0;
+            (*mesas)[i][j].pessoas = 0;
+            (*mesas)[i][j].comanda = 0;
+            for (int k = 0; k < 4; k++) {
+                push(pilhaPratos, 1);
             }
             contador++;
         }
@@ -75,7 +75,7 @@ void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes)
     }
 }
 
-void finalizarRefeicao() {
+void finalizarRefeicao(Mesa **mesas, int linhas, int colunas, Fila *filaClientes, Pilha *pilhaPratos) {
     printf("Função Finalizar Refeição chamada.");
     int numero_mesa;
     printf("Digite o número da mesa que deseja liberar: ");
@@ -90,7 +90,17 @@ void finalizarRefeicao() {
                     mesas[i][j].pessoas = 0;
                     mesas[i][j].comanda = 0;
                     printf("Mesa %d liberada com sucesso.", numero_mesa);
-                    // Aqui poderíamos implementar a lógica de chamar clientes da fila de espera
+
+                    // Repor pratos na mesa liberada
+                    for (int k = 0; k < 4; k++) {
+                        push(pilhaPratos, 1);
+                    }
+
+                    if (!filaVazia(filaClientes)) {
+                        int grupo = filaRetira(filaClientes);
+                        printf("Chamando grupo da fila de espera com %d pessoas.\n", grupo);
+                        chegarClientes(mesas, &linhas, &colunas, filaClientes);
+                    }
                 } else {
                     printf("A mesa %d já está livre.", numero_mesa);
                 }
@@ -133,7 +143,7 @@ void removerPratos(Pilha *pilha, int quantidade) {
     }
 }
 
-void imprimirEstado() {
+void imprimirEstado(Mesa **mesas, int linhas, int colunas, Pilha *pilha, Fila *filaClientes) {
     printf("\n--- Estado Atual do Restaurante ---\n");
     printf("\nMesas:\n");
     for (int i = 0; i < linhas; i++) {

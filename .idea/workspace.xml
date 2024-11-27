@@ -27,11 +27,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acoes.c" beforeDir="false" afterPath="$PROJECT_DIR$/acoes.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acoes.h" beforeDir="false" afterPath="$PROJECT_DIR$/acoes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fila.c" beforeDir="false" afterPath="$PROJECT_DIR$/fila.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fila.h" beforeDir="false" afterPath="$PROJECT_DIR$/fila.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pilha.c" beforeDir="false" afterPath="$PROJECT_DIR$/pilha.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pilha.h" beforeDir="false" afterPath="$PROJECT_DIR$/pilha.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +101,7 @@
       <workItem from="1730741998356" duration="15677000" />
       <workItem from="1731365385633" duration="5361000" />
       <workItem from="1732196652244" duration="943000" />
-      <workItem from="1732540693134" duration="6728000" />
+      <workItem from="1732540693134" duration="8746000" />
     </task>
     <servers />
   </component>

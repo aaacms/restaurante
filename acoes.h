@@ -14,7 +14,7 @@ void abrirRestaurante(Mesa **mesas, int *linhas, int *colunas);
 
 void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes);
 
-void finalizarRefeicao();
+void finalizarRefeicao(Mesa **mesas, int linhas, int colunas, Fila *filaClientes, Pilha *pilhaPratos);
 
 void desistirDeEsperar();
 
@@ -22,6 +22,6 @@ void reporPratos(Pilha *pilha);
 
 void removerPratos(Pilha *pilha, int quantidade);
 
-void imprimirEstado();
+void imprimirEstado(Mesa **mesas, int linhas, int colunas, Pilha *pilha, Fila *filaClientes);
 
 #endif //ACOES_H
