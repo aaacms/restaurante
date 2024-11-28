@@ -57,7 +57,7 @@ int filaRetira(Fila* filaClientes){
         filaClientes->ini = temp->prox;
         free(temp);
     }
-    else temp.qtd -= 4;
+    else temp->qtd -= 4;
     if (filaClientes->ini == NULL) {
         filaClientes->fim = NULL;
     }
