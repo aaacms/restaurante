@@ -96,6 +96,10 @@ void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila *filaClient
     printf("Digite o número da mesa que deseja liberar: ");
     scanf("%d", &numero_mesa);
 
+    if(tamanhoPilha < 4){
+        printf("Pratos limpos insuficientes! Reponha os pratos antes de liberar a mesa!\n");
+        return;
+    }
     // Procurar a mesa pelo número e liberá-la
     for (int i = 0; i < *linhas; i++) {
         for (int j = 0; j < *colunas; j++) {
@@ -108,7 +112,7 @@ void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila *filaClient
 
                     // Repor pratos na mesa liberada
                     for (int k = 0; k < 4; k++) {
-                        push(pilhaPratos, 1);
+                        float temp = pop(pilhaPratos);
                     }
 
                     if (!filaVazia(filaClientes)) {
@@ -124,6 +128,7 @@ void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila *filaClient
         }
     }
     printf("Mesa %d não encontrada.", numero_mesa);
+    return pratosNaMesa;
 }
 
 void desistirDeEsperar(Fila *filaClientes) {

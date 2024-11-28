@@ -30,7 +30,7 @@ void push(Pilha *p, float v) {
 float pop(Pilha *p) {
     if (p->prim == NULL || p->prim == NULL) {
         printf("Pilha vazia.\n");
-        exit(1);
+        return 0;
     }
     Lista* t = p->prim;
     float v = t->info;
@@ -49,4 +49,17 @@ void pilhaLibera(Pilha *p) {
         }
         free(p);
     }
+}
+
+int tamanhoPilha(Pilha *p){
+    int cont = 0;
+    if (p != NULL) {
+        Lista *atual = p->prim;
+        while (atual != NULL) {
+            Lista *temp = atual->prox;
+            cont++;
+            atual = temp;
+        }
+    }
+    return cont;
 }
