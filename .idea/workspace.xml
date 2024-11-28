@@ -24,13 +24,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c98176b9-cd31-4368-8691-bf88e50c1ff9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acoes.c" beforeDir="false" afterPath="$PROJECT_DIR$/acoes.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acoes.h" beforeDir="false" afterPath="$PROJECT_DIR$/acoes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pilha.h" beforeDir="false" afterPath="$PROJECT_DIR$/pilha.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cadastro_bolsistas.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cadastro_bolsistas.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,7 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="cadastro_bolsistas" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="restaurante" TARGET_NAME="cadastro_bolsistas" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="restaurante" RUN_TARGET_NAME="cadastro_bolsistas">
+    <configuration name="cadastro_bolsistas" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="restaurante" TARGET_NAME="cadastro_bolsistas" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="restaurante" RUN_TARGET_NAME="cadastro_bolsistas">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -108,7 +107,8 @@
       <workItem from="1731365385633" duration="5361000" />
       <workItem from="1732196652244" duration="943000" />
       <workItem from="1732540693134" duration="19947000" />
-      <workItem from="1732759792377" duration="1913000" />
+      <workItem from="1732759792377" duration="1960000" />
+      <workItem from="1732803830325" duration="2865000" />
     </task>
     <servers />
   </component>
@@ -119,15 +119,5 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/acoes.c</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

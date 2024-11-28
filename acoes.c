@@ -62,12 +62,16 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
                     mesas[i][j].pessoas = novos_clientes;
                     //remove pratos da pilha para colocar na mesa para os clientes que chegaram
                     removerPratos(*pilhaPratos, mesas[i][j].pessoas);
+                    printf("%d acomodados na mesa %d\n", mesas[i][j].pessoas, mesas[i][j].numero);
                     novos_clientes = 0;
                 }
                 else
                 {
                     mesas[i][j].ocupada = 1;
                     mesas[i][j].pessoas = 4;
+                    //remove pratos da pilha para colocar na mesa para os clientes que chegaram
+                    removerPratos(*pilhaPratos, mesas[i][j].pessoas);
+                    printf("%d acomodados na mesa %d\n", mesas[i][j].pessoas, mesas[i][j].numero);
                     novos_clientes -= 4;
                 }
             }
@@ -83,7 +87,7 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
     }
 
     if(novos_clientes > 0){
-        printf("Não há mesas suficientes para acomodar todos os clientes. Alguns estão na fila de espera.");
+        printf("Não há mesas suficientes para acomodar todos os clientes. %d estão na fila de espera.", novos_clientes);
         filaInsere(*filaClientes, novos_clientes);
     }
 }
@@ -103,7 +107,7 @@ void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes
 
 
 void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos) {
-    printf("Função Finalizar Refeição chamada.");
+
     int numero_mesa;
     printf("Digite o número da mesa que deseja liberar: ");
     scanf("%d", &numero_mesa);
