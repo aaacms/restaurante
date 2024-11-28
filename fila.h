@@ -22,5 +22,7 @@ void filaInsere(Fila* filaClientes, int quantos);
 int filaRetira(Fila* filaClientes);
 int filaRetiraMeio(Fila* filaClientes, int senha);
 void filaLibera(Fila* filaClientes);
+GrupoClientes* filaAcha(Fila* filaClientes, int senha);
+int clientesDesistiram(GrupoClientes* grupo, Fila* filaClientes);
 
 #endif //FILA_H

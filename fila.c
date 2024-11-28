@@ -107,3 +107,38 @@ void filaLibera(Fila *f) {
         free(f);
     }
 }
+
+GrupoClientes* filaAcha(Fila* filaClientes, int senha){
+    if(filaClientes->ini == NULL) return NULL;
+    GrupoClientes* temp = filaClientes;
+    for(; temp != NULL; temp = temp->prox){
+        if(temp->senha == senha) return temp;
+    }
+    printf("Não há um grupo com essa senha na fila. Tente outra.\n");
+    return NULL;
+}
+
+int clientesDesistiram(GrupoClientes* grupo, Fila* filaClientes){
+    int retorno;
+    if(grupo == filaClientes->ini){
+        retorno = filaRetira(filaClientes);
+        return retorno;
+    }
+    GrupoClientes* aux = filaClientes->ini;
+    GrupoClientes* ant = NULL;
+    while(aux != grupo){
+        ant = aux;
+        aux = aux->prox;
+    }
+    if(grupo == filaClientes->fim){
+        filaClientes->fim = ant;
+        ant->prox = NULL;
+        retorno = aux->qtd;
+        free(aux);
+        return retorno;
+    }
+    ant->prox = aux->prox;
+    retorno = aux->qtd;
+    free(aux);
+    return retorno;
+}
