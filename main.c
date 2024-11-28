@@ -26,13 +26,13 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
                 abrirRestaurante(&mesas, linhas, colunas, pilhaPratos);
                 break;
             case 2:
-                chegarClientes(mesas, linhas, colunas, filaClientes);
+                chegarClientes(mesas, linhas, colunas, filaClientes, pilhaPratos);
                 break;
             case 3:
                 finalizarRefeicao(mesas, linhas, colunas, filaClientes, pilhaPratos);
                 break;
             case 4:
-                desistirDeEsperar(filaClientes);
+                desistirDeEsperar(*filaClientes);
                 break;
             case 5:
                 reporPratos(pilhaPratos);
