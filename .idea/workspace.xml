@@ -29,11 +29,6 @@
       <change beforePath="$PROJECT_DIR$/acoes.h" beforeDir="false" afterPath="$PROJECT_DIR$/acoes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cadastro_bolsistas.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fila.c" beforeDir="false" afterPath="$PROJECT_DIR$/fila.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fila.h" beforeDir="false" afterPath="$PROJECT_DIR$/fila.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pilha.c" beforeDir="false" afterPath="$PROJECT_DIR$/pilha.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +103,7 @@
       <workItem from="1730741998356" duration="15677000" />
       <workItem from="1731365385633" duration="5361000" />
       <workItem from="1732196652244" duration="943000" />
-      <workItem from="1732540693134" duration="13454000" />
+      <workItem from="1732540693134" duration="19531000" />
     </task>
     <servers />
   </component>
