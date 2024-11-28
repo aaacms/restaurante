@@ -110,7 +110,7 @@ void filaLibera(Fila *f) {
 
 GrupoClientes* filaAcha(Fila* filaClientes, int senha){
     if(filaClientes->ini == NULL) return NULL;
-    GrupoClientes* temp = filaClientes;
+    GrupoClientes* temp = filaClientes->ini;
     for(; temp != NULL; temp = temp->prox){
         if(temp->senha == senha) return temp;
     }
