@@ -53,11 +53,14 @@ int filaRetira(Fila* filaClientes){
     }
     GrupoClientes* temp = filaClientes->ini;
     int qtdRemovido = temp->qtd;
-    filaClientes->ini = temp->prox;
+    if(temp->qtd <= 4){
+        filaClientes->ini = temp->prox;
+        free(temp);
+    }
+    else temp.qtd -= 4;
     if (filaClientes->ini == NULL) {
         filaClientes->fim = NULL;
     }
-    free(temp);
     return qtdRemovido;
 }
 
