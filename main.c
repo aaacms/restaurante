@@ -60,7 +60,7 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
         cont_pratos++;
         if(cont_pratos%5 == 0){
             printf("\nUm funcionário está repondo os pratos...\n");
-            reporPratos(pilhaPratos);
+            repoeAutomatico(pilhaPratos);
         }
 
     } while(opcao != 0);
