@@ -154,6 +154,14 @@ void desistirDeEsperar(Fila *filaClientes) {
     }
 }
 
+void repoeAutomatico(Pilha** pilha){
+    int novos_pratos = 20;
+    for (int i = 0; i < novos_pratos; i++) {
+        push(*pilha, 1);
+    }
+    printf(" - Foram repostos automaticamente %d pratos.\n", novos_pratos);
+}
+
 void reporPratos(Pilha **pilha) {
     int novos_pratos;
     printf("Digite a quantidade de pratos a repor: ");

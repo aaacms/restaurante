@@ -20,6 +20,8 @@ void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila **filaClien
 
 void desistirDeEsperar(Fila *filaClientes);
 
+void repoeAutomatico(Pilha** pilha);
+
 void reporPratos(Pilha **pilha);
 
 void removerPratos(Pilha *pilha, int quantidade);

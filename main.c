@@ -5,7 +5,7 @@
 #include "fila.h"
 
 void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **filaClientes) {
-    int opcao;
+    int opcao, cont_pratos = 0;
 
     do {
         printf("\n--- Sistema de Gerenciamento de Restaurante ---\n");
@@ -55,6 +55,12 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
                 break;
             default:
                 printf("Opcao invalida! Tente novamente.\n");
+        }
+
+        cont_pratos++;
+        if(cont_pratos%5 == 0){
+            printf("\nUm funcionário está repondo os pratos...\n");
+            reporPratos(pilhaPratos);
         }
 
     } while(opcao != 0);
