@@ -14,6 +14,8 @@ typedef struct pilha {
 Pilha* criaPilha();
 void push(Pilha *p, float v);
 float pop(Pilha *p);
+void pilhaLibera(Pilha *p);
+int tamanhoPilha(Pilha *p);
 
 
 #endif //PILHA_H
