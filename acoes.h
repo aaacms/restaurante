@@ -12,9 +12,9 @@ typedef struct {
 
 void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas, Pilha **pilhaPratos);
 
-void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, int novos_clientes);
+void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha *pilhaPratos, int novos_clientes);
 
-void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes);
+void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes, Pilha **pilhaPratos);
 
 void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes, Pilha *pilhaPratos);
 

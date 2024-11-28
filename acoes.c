@@ -41,7 +41,16 @@ void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas, Pilha **pilhaPra
     printf("Restaurante aberto com %d mesas (%d linhas x %d colunas).\n", (*linhas) * (*colunas), *linhas, *colunas);
 }
 
-void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, int novos_clientes) {
+void removerPratos(Pilha *pilha, int quantidade) {
+    for (int i = 0; i < quantidade; i++) {
+        if (pop(pilha) == -1) {
+            printf("Não há pratos suficientes para remover.\n");
+            break;
+        }
+    }
+}
+
+void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos, int novos_clientes) {
 
     for (int i = 0; i < *linhas; i++) {
         for (int j = 0; j < *colunas; j++) {
@@ -52,7 +61,7 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
                     mesas[i][j].ocupada = 1;
                     mesas[i][j].pessoas = novos_clientes;
                     //remove pratos da pilha para colocar na mesa para os clientes que chegaram
-                    removerPratos(pilhaPratos, mesas[i][j].pessoas);
+                    removerPratos(*pilhaPratos, mesas[i][j].pessoas);
                     novos_clientes = 0;
                 }
                 else
@@ -79,7 +88,7 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
     }
 }
 
-void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes) {
+void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos) {
 
     int novos_clientes = -1;
 
@@ -88,17 +97,10 @@ void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes
         scanf(" %d", &novos_clientes);
     } while (novos_clientes < 0);
     
-    colocaClienteNaMesa(mesas, linhas, colunas, filaClientes, novos_clientes);
+    colocaClienteNaMesa(mesas, linhas, colunas, filaClientes, pilhaPratos, novos_clientes);
 }
 
-void removerPratos(Pilha *pilha, int quantidade) {
-    for (int i = 0; i < quantidade; i++) {
-        if (pop(pilha) == -1) {
-            printf("Não há pratos suficientes para remover.\n");
-            break;
-        }
-    }
-}
+
 
 void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila *filaClientes, Pilha *pilhaPratos) {
     printf("Função Finalizar Refeição chamada.");
@@ -116,15 +118,10 @@ void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila *filaClient
                     mesas[i][j].comanda = 0;
                     printf("Mesa %d liberada com sucesso.", numero_mesa);
 
-                    // Repor pratos na mesa liberada
-                    for (int k = 0; k < 4; k++) {
-                        push(pilhaPratos, 1);
-                    }
-
                     if (!filaVazia(filaClientes)) {
                         int grupo = filaRetira(filaClientes);
                         printf("Chamando grupo da fila de espera com %d pessoas.\n", grupo);
-                        colocaClienteNaMesa(mesas, linhas, colunas, &filaClientes, grupo);
+                        colocaClienteNaMesa(mesas, linhas, colunas, &filaClientes, &pilhaPratos, grupo);
                     }
                 } else {
                     printf("A mesa %d já está livre.", numero_mesa);
@@ -162,24 +159,25 @@ void reporPratos(Pilha *pilha) {
 }
 
 void imprimirEstado(Mesa **mesas, int *linhas, int *colunas, Pilha *pilha, Fila *filaClientes) {
-    printf("\n--- Estado Atual do Restaurante ---\n");
+    printf("\n\t\t--- Estado Atual do Restaurante ---\n");
     printf("\nMesas:\n");
     for (int i = 0; i < linhas; i++) {
         for (int j = 0; j < colunas; j++) {
-            printf("Mesa %d: %s, %d pessoas\n", mesas[i][j].numero, mesas[i][j].ocupada ? "Ocupada" : "Livre", mesas[i][j].pessoas);
+            printf("\tMesa %d: %s, %d pessoas\n", mesas[i][j].numero, mesas[i][j].ocupada ? "Ocupada" : "Livre", mesas[i][j].pessoas);
         }
     }
 
     printf("\nPilha de Pratos:\n");
-    printf("Quantidade de pratos na pilha: %d\n", quantidadePratosDisponiveis(pilha));
+    printf("\tQuantidade de pratos na pilha: %d\n", tamanhoPilha(pilha));
 
     printf("\nFila de Espera:\n");
     if (filaVazia(filaClientes)) {
-        printf("Nenhum grupo aguardando na fila de espera.\n");
+        printf("\tNenhum grupo aguardando na fila de espera.\n");
     } else {
-        for (int i = 0; i < filaClientes->n; i++) {
-            int pos = (filaClientes->ini + i) % 100;
-            printf("Grupo com senha %d: %d pessoas aguardando\n", filaClientes->vet[pos].senha, filaClientes->vet[pos].qtd);
+        GrupoClientes *atual = filaClientes->ini;
+        while (atual != NULL) {
+            printf("\tGrupo com senha %d: %d pessoas aguardando\n", atual->senha, atual->qtd);
+            atual = atual->prox;
         }
     }
 }
