@@ -151,7 +151,7 @@ void desistirDeEsperar(Fila *filaClientes) {
             printf("Digite a senha do grupo que deseja desistir de esperar: ");
             while(!senha) scanf("%d", &senha);
             // Aqui deveríamos implementar a lógica para encontrar e remover o grupo da fila de espera
-            // Para simplificação, vamos apenas remover o último da fila
+            // feito!
             GrupoClientes* rmv = filaAcha(filaClientes, senha);
             if(rmv != NULL){
                 int quantos_clientes = clientesDesistiram(rmv, filaClientes);
