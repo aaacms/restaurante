@@ -18,4 +18,4 @@ void pilhaLibera(Pilha *p);
 int tamanhoPilha(Pilha *p);
 
 
-#endif //PILHA_H
+#endif

@@ -7,7 +7,7 @@
 Fila* filaCria() {
     Fila* f = (Fila*) malloc(sizeof(Fila));
     if (f == NULL) {
-        printf("Erro ao alocar memória para a fila.\n");
+        printf("Erro ao alocar memoria para a fila.\n");
         exit(1);
     }
     f->ini = NULL;
@@ -17,7 +17,7 @@ Fila* filaCria() {
 
 bool filaVazia(Fila* filaClientes){
     if (filaClientes == NULL) {
-        printf("Fila não inicializada.\n");
+        printf("Fila nao inicializada.\n");
         return true;
     }
     return (filaClientes->ini == 0);
@@ -25,12 +25,12 @@ bool filaVazia(Fila* filaClientes){
 
 void filaInsere(Fila* filaClientes, int quantos){
     if (filaClientes == NULL) {
-        printf("Fila não inicializada.\n");
+        printf("Fila nao inicializada.\n");
         return;
     }
     GrupoClientes* novoGrupo = (GrupoClientes*) malloc(sizeof(GrupoClientes));
     if (novoGrupo == NULL) {
-        printf("Erro ao alocar memória para o novo grupo de clientes.\n");
+        printf("Erro ao alocar memoria para o novo grupo de clientes.\n");
         exit(1);
     }
 
@@ -48,7 +48,7 @@ void filaInsere(Fila* filaClientes, int quantos){
 
 int filaRetira(Fila* filaClientes){
     if (filaClientes == NULL || filaVazia(filaClientes)) {
-        printf("Fila vazia ou não inicializada, nada a remover!\n");
+        printf("Fila vazia ou nao inicializada, nada a remover!\n");
         return 0;
     }
     GrupoClientes* temp = filaClientes->ini;
@@ -63,7 +63,7 @@ int filaRetira(Fila* filaClientes){
 
 int filaRetiraMeio(Fila* filaClientes, int senha) {
     if (filaClientes == NULL || filaVazia(filaClientes)) {
-        printf("Fila vazia ou não inicializada, nada a remover!\n");
+        printf("Fila vazia ou nao inicializada, nada a remover!\n");
         return 0;
     }
     GrupoClientes* atual = filaClientes->ini;
@@ -75,20 +75,20 @@ int filaRetiraMeio(Fila* filaClientes, int senha) {
     }
 
     if (atual == NULL) {
-        printf("Grupo com a senha %d não encontrado na fila.\n", senha);
+        printf("Grupo com a senha %d nao encontrado na fila.\n", senha);
         return 0;
     }
 
     int qtdRemovido = atual->qtd;
     if (anterior == NULL) {
-        // O grupo a ser removido está no início da fila
+        // O grupo tá no início da fila
         filaClientes->ini = atual->prox;
     } else {
         anterior->prox = atual->prox;
     }
 
     if (atual == filaClientes->fim) {
-        // O grupo a ser removido está no final da fila
+        // O grupo tá no final da fila
         filaClientes->fim = anterior;
     }
 
@@ -114,7 +114,7 @@ GrupoClientes* filaAcha(Fila* filaClientes, int senha){
     for(; temp != NULL; temp = temp->prox){
         if(temp->senha == senha) return temp;
     }
-    printf("Não há um grupo com essa senha na fila. Tente outra.\n");
+    printf("Nao ha um grupo com essa senha na fila. Tente outra.\n");
     return NULL;
 }
 

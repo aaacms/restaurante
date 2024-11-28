@@ -24,6 +24,6 @@ void reporPratos(Pilha **pilha);
 
 void removerPratos(Pilha *pilha, int quantidade);
 
-void imprimirEstado(Mesa **mesas, int *linhas, int *colunas, Pilha **pilha, Fila **filaClientes);
+void imprimirEstado(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilha);
 
-#endif //ACOES_H
+#endif

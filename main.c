@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include "acoes.h"
 #include <stdlib.h>
-
-#include "fila.h"
 #include "pilha.h"
-
+#include "fila.h"
 
 void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **filaClientes) {
     int opcao;
@@ -13,12 +11,12 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
         printf("\n--- Sistema de Gerenciamento de Restaurante ---\n");
         printf("1) Abrir restaurante\n");
         printf("2) Chegar clientes ao restaurante\n");
-        printf("3) Finalizar refeição/liberar mesa\n");
+        printf("3) Finalizar refeicao/liberar mesa\n");
         printf("4) Desistir de esperar\n");
         printf("5) Repor pratos\n");
         printf("6) Imprimir estado do restaurante\n");
         printf("0) Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
 
         switch(opcao) {
@@ -38,7 +36,7 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
                 reporPratos(pilhaPratos);
                 break;
             case 6:
-                imprimirEstado(mesas, linhas, colunas, pilhaPratos, filaClientes);
+                imprimirEstado(mesas, linhas, colunas, filaClientes, pilhaPratos);
                 break;
             case 0:
                 printf("Saindo...\n");
@@ -56,8 +54,9 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
                 }
                 break;
             default:
-                printf("Opção inválida! Tente novamente.\n");
+                printf("Opcao invalida! Tente novamente.\n");
         }
+
     } while(opcao != 0);
 }
 

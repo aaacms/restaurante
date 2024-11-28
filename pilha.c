@@ -5,7 +5,7 @@
 Pilha* criaPilha() {
     Pilha* p = (Pilha*) malloc(sizeof(Pilha));
     if (p == NULL) {
-        printf("Erro ao alocar memória para a pilha.\n");
+        printf("Erro ao alocar memoria para a pilha.\n");
         exit(1);
     }
 
@@ -14,12 +14,12 @@ Pilha* criaPilha() {
 }
 void push(Pilha *p, float v) {
     if (p == NULL) {
-        printf("Pilha não inicializada.\n");
+        printf("Pilha nao inicializada.\n");
         return;
     }
     Lista* n = (Lista*)malloc(sizeof(Lista));
     if (n == NULL) {
-        printf("Erro ao alocar memória para o novo elemento da pilha.\n");
+        printf("Erro ao alocar memoria para o novo elemento da pilha.\n");
         exit(1);
     }
     n->info = v;
@@ -28,9 +28,9 @@ void push(Pilha *p, float v) {
 }
 
 float pop(Pilha *p) {
-    if (p->prim == NULL || p->prim == NULL) {
+    if (p->prim == NULL) {
         printf("Pilha vazia.\n");
-        return 0;
+        return -1;
     }
     Lista* t = p->prim;
     float v = t->info;

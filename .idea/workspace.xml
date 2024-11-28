@@ -26,10 +26,20 @@
     <list default="true" id="c98176b9-cd31-4368-8691-bf88e50c1ff9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acoes.c" beforeDir="false" afterPath="$PROJECT_DIR$/acoes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acoes.h" beforeDir="false" afterPath="$PROJECT_DIR$/acoes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/acoes.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/acoes.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/fila.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/fila.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/main.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/pilha.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cadastro_bolsistas.dir/pilha.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cadastro_bolsistas.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cadastro_bolsistas.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fila.c" beforeDir="false" afterPath="$PROJECT_DIR$/fila.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fila.h" beforeDir="false" afterPath="$PROJECT_DIR$/fila.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pilha.c" beforeDir="false" afterPath="$PROJECT_DIR$/pilha.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pilha.h" beforeDir="false" afterPath="$PROJECT_DIR$/pilha.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +118,7 @@
       <workItem from="1732196652244" duration="943000" />
       <workItem from="1732540693134" duration="19947000" />
       <workItem from="1732759792377" duration="1960000" />
-      <workItem from="1732803830325" duration="2865000" />
+      <workItem from="1732803830325" duration="7714000" />
     </task>
     <servers />
   </component>

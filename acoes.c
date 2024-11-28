@@ -1,25 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "acoes.h"
-#include "fila.h"
 #include "pilha.h"
+#include "fila.h"
+
 
 void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas, Pilha **pilhaPratos) {
 
-    printf("Informe o número de linhas de mesas: ");
+    printf("Informe o numero de linhas de mesas: ");
     scanf("%d", linhas);
-    printf("Informe o número de colunas de mesas: ");
+    printf("Informe o numero de colunas de mesas: ");
     scanf("%d", colunas);
 
     *mesas = (Mesa **)malloc((*linhas) * sizeof(Mesa *));
     if (*mesas == NULL) {
-        printf("Erro ao alocar memória para as linhas de mesas.\n");
+        printf("Erro ao alocar memoria para as linhas de mesas.\n");
         exit(1);
     }
     for (int i = 0; i < *linhas; i++) {
         (*mesas)[i] = (Mesa *)malloc((*colunas) * sizeof(Mesa));
         if ((*mesas)[i] == NULL) {
-            printf("Erro ao alocar memória para as colunas de mesas.\n");
+            printf("Erro ao alocar memoria para as colunas de mesas.\n");
             exit(1);
         }
     }
@@ -44,8 +45,9 @@ void abrirRestaurante(Mesa ***mesas, int *linhas, int *colunas, Pilha **pilhaPra
 void removerPratos(Pilha *pilha, int quantidade) {
     for (int i = 0; i < quantidade; i++) {
         if (pop(pilha) == -1) {
-            printf("Não há pratos suficientes para remover.\n");
-            break;
+            printf("Nao ha pratos suficientes na pilha.\n");
+            reporPratos(&pilha);
+            pop(pilha);
         }
     }
 }
@@ -62,7 +64,7 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
                     mesas[i][j].pessoas = novos_clientes;
                     //remove pratos da pilha para colocar na mesa para os clientes que chegaram
                     removerPratos(*pilhaPratos, mesas[i][j].pessoas);
-                    printf("%d acomodados na mesa %d\n", mesas[i][j].pessoas, mesas[i][j].numero);
+                    printf(" - %d acomodados na mesa %d\n", mesas[i][j].pessoas, mesas[i][j].numero);
                     novos_clientes = 0;
                 }
                 else
@@ -71,7 +73,7 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
                     mesas[i][j].pessoas = 4;
                     //remove pratos da pilha para colocar na mesa para os clientes que chegaram
                     removerPratos(*pilhaPratos, mesas[i][j].pessoas);
-                    printf("%d acomodados na mesa %d\n", mesas[i][j].pessoas, mesas[i][j].numero);
+                    printf(" - %d acomodados na mesa %d\n", mesas[i][j].pessoas, mesas[i][j].numero);
                     novos_clientes -= 4;
                 }
             }
@@ -87,7 +89,7 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
     }
 
     if(novos_clientes > 0){
-        printf("Não há mesas suficientes para acomodar todos os clientes. %d estão na fila de espera.", novos_clientes);
+        printf(" - Nao ha mesas suficientes para acomodar todos os clientes. %d foram alocados na fila de espera.\n", novos_clientes);
         filaInsere(*filaClientes, novos_clientes);
     }
 }
@@ -109,10 +111,10 @@ void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes
 void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos) {
 
     int numero_mesa;
-    printf("Digite o número da mesa que deseja liberar: ");
+    printf("Digite o numero da mesa que deseja liberar: ");
     scanf("%d", &numero_mesa);
 
-    // Procurar a mesa pelo número e liberá-la
+    // Procurar a mesa pelo numero e libera-la
     for (int i = 0; i < *linhas; i++) {
         for (int j = 0; j < *colunas; j++) {
             if (mesas[i][j].numero == numero_mesa) {
@@ -120,21 +122,21 @@ void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila **filaClien
                     mesas[i][j].ocupada = 0;
                     mesas[i][j].pessoas = 0;
                     mesas[i][j].comanda = 0;
-                    printf("Mesa %d liberada com sucesso.", numero_mesa);
+                    printf(" - Mesa %d liberada com sucesso.\n", numero_mesa);
 
                     if (!filaVazia(*filaClientes)) {
                         int grupo = filaRetira(*filaClientes);
-                        printf("Chamando grupo da fila de espera com %d pessoas.\n", grupo);
+                        printf(" - Chamando grupo da fila de espera com %d pessoas.\n", grupo);
                         colocaClienteNaMesa(mesas, linhas, colunas, filaClientes, pilhaPratos, grupo);
                     }
                 } else {
-                    printf("A mesa %d já está livre.", numero_mesa);
+                    printf("A mesa %d ja esta livre.\n", numero_mesa);
                 }
                 return;
             }
         }
     }
-    printf("Mesa %d não encontrada.", numero_mesa);
+    printf("Mesa %d nao encontrada.\n", numero_mesa);
 }
 
 void desistirDeEsperar(Fila *filaClientes) {
@@ -147,7 +149,7 @@ void desistirDeEsperar(Fila *filaClientes) {
         scanf("%d", &senha);
         int removido = filaRetiraMeio(filaClientes, senha);
         if (removido > 0) {
-            printf("Grupo com a senha %d desistiu de esperar e foi removido da fila.\n", senha);
+            printf(" - Grupo com a senha %d desistiu de esperar e foi removido da fila.\n", senha);
         }
     }
 }
@@ -159,10 +161,10 @@ void reporPratos(Pilha **pilha) {
     for (int i = 0; i < novos_pratos; i++) {
         push(*pilha, 1);
     }
-    printf("Foram repostos %d pratos.\n", novos_pratos);
+    printf(" - Foram repostos %d pratos.\n", novos_pratos);
 }
 
-void imprimirEstado(Mesa **mesas, int *linhas, int *colunas, Pilha **pilha, Fila **filaClientes) {
+void imprimirEstado(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilha) {
     printf("\n\t\t--- Estado Atual do Restaurante ---\n");
     printf("\nMesas:\n");
     for (int i = 0; i < *linhas; i++) {
