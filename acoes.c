@@ -52,7 +52,7 @@ void removerPratos(Pilha *pilha, int quantidade) {
     }
 }
 
-void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos, int novos_clientes) {
+void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos, int novos_clientes, bool* naFila) {
 
     for (int i = 0; i < *linhas; i++) {
         for (int j = 0; j < *colunas; j++) {
@@ -90,12 +90,13 @@ void colocaClienteNaMesa(Mesa **mesas, int *linhas, int *colunas, Fila **filaCli
 
     if(novos_clientes > 0){
         printf(" - Nao ha mesas suficientes para acomodar todos os clientes. %d foram alocados na fila de espera.\n", novos_clientes);
-        filaInsere(*filaClientes, novos_clientes);
+        if(!(*naFila)) filaInsere(*filaClientes, novos_clientes);
     }
 }
 
-void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos) {
+void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos, bool *naFila) {
 
+    (*naFila) = false;
     int novos_clientes = -1;
 
     printf("Digite a quantidade de clientes que chegaram no restaurante: ");
@@ -103,12 +104,12 @@ void chegarClientes(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes
         scanf(" %d", &novos_clientes);
     } while (novos_clientes < 0);
     
-    colocaClienteNaMesa(mesas, linhas, colunas, filaClientes, pilhaPratos, novos_clientes);
+    colocaClienteNaMesa(mesas, linhas, colunas, filaClientes, pilhaPratos, novos_clientes, naFila);
 }
 
 
 
-void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos) {
+void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila **filaClientes, Pilha **pilhaPratos, bool *naFila) {
 
     int numero_mesa;
     printf("Digite o numero da mesa que deseja liberar: ");
@@ -125,9 +126,9 @@ void finalizarRefeicao(Mesa **mesas, int *linhas, int *colunas, Fila **filaClien
                     printf(" - Mesa %d liberada com sucesso.\n", numero_mesa);
 
                     if (!filaVazia(*filaClientes)) {
-                        int grupo = filaRetira(*filaClientes);
+                        int grupo = filaRetira(*filaClientes, naFila);
                         printf(" - Chamando grupo da fila de espera com %d pessoas.\n", grupo);
-                        colocaClienteNaMesa(mesas, linhas, colunas, filaClientes, pilhaPratos, grupo);
+                        colocaClienteNaMesa(mesas, linhas, colunas, filaClientes, pilhaPratos, grupo, naFila);
                     }
                 } else {
                     printf("A mesa %d ja esta livre.\n", numero_mesa);

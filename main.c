@@ -4,7 +4,7 @@
 #include "pilha.h"
 #include "fila.h"
 
-void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **filaClientes) {
+void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **filaClientes, bool *naFila) {
     int opcao, cont_pratos = 0;
 
     do {
@@ -24,10 +24,10 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
                 abrirRestaurante(&mesas, linhas, colunas, pilhaPratos);
                 break;
             case 2:
-                chegarClientes(mesas, linhas, colunas, filaClientes, pilhaPratos);
+                chegarClientes(mesas, linhas, colunas, filaClientes, pilhaPratos, naFila);
                 break;
             case 3:
-                finalizarRefeicao(mesas, linhas, colunas, filaClientes, pilhaPratos);
+                finalizarRefeicao(mesas, linhas, colunas, filaClientes, pilhaPratos, naFila);
                 break;
             case 4:
                 desistirDeEsperar(*filaClientes);
@@ -52,13 +52,13 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
                 if (*pilhaPratos != NULL) {
                     pilhaLibera(*pilhaPratos);
                 }
-                break;
+                return;
             default:
                 printf("Opcao invalida! Tente novamente.\n");
         }
 
         cont_pratos++;
-        if(cont_pratos%8 == 0){
+        if(cont_pratos%6 == 0){
             printf("\nUm funcionário está repondo os pratos...\n");
             repoeAutomatico(pilhaPratos);
         }
@@ -69,9 +69,10 @@ void menu(Mesa **mesas, int *linhas, int *colunas, Pilha **pilhaPratos, Fila **f
 int main() {
     Mesa *mesas = NULL;
     int linhas = 0, colunas = 0;
+    bool naFila = false;
     Pilha *pilhaPratos = criaPilha();
     Fila *filaClientes = filaCria();
-    menu(&mesas, &linhas, &colunas, &pilhaPratos, &filaClientes);
+    menu(&mesas, &linhas, &colunas, &pilhaPratos, &filaClientes, &naFila);
     return 0;
 }
 

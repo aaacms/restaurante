@@ -18,10 +18,10 @@ typedef struct fila {
 Fila* filaCria(void);
 bool filaVazia(Fila* filaClientes);
 void filaInsere(Fila* filaClientes, int quantos);
-int filaRetira(Fila* filaClientes);
+int filaRetira(Fila* filaClientes, bool *naFila);
 int filaRetiraMeio(Fila* filaClientes, int senha);
 void filaLibera(Fila* f);
 GrupoClientes* filaAcha(Fila* filaClientes, int senha);
-int clientesDesistiram(GrupoClientes* grupo, Fila* filaClientes);
+int clientesDesistiram(GrupoClientes* grupo, Fila* filaClientes, bool* naFila);
 
 #endif

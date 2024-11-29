@@ -46,7 +46,7 @@ void filaInsere(Fila* filaClientes, int quantos){
     filaClientes->fim = novoGrupo;
 }
 
-int filaRetira(Fila* filaClientes){
+int filaRetira(Fila* filaClientes, bool* naFila){
     if (filaClientes == NULL || filaVazia(filaClientes)) {
         printf("Fila vazia ou nao inicializada, nada a remover!\n");
         return 0;
@@ -56,8 +56,12 @@ int filaRetira(Fila* filaClientes){
     if(temp->qtd <= 4){
         filaClientes->ini = temp->prox;
         free(temp);
+        *naFila = false;
     }
-    else temp->qtd -= 4;
+    else{
+        temp->qtd -= 4;
+        *naFila = true;
+    }
     if (filaClientes->ini == NULL) {
         filaClientes->fim = NULL;
     }
@@ -121,10 +125,10 @@ GrupoClientes* filaAcha(Fila* filaClientes, int senha){
     return NULL;
 }
 
-int clientesDesistiram(GrupoClientes* grupo, Fila* filaClientes){
+int clientesDesistiram(GrupoClientes* grupo, Fila* filaClientes, bool* naFila){
     int retorno;
     if(grupo == filaClientes->ini){
-        retorno = filaRetira(filaClientes);
+        retorno = filaRetira(filaClientes, naFila);
         return retorno;
     }
     GrupoClientes* aux = filaClientes->ini;
